@@ -38,7 +38,7 @@ print("initialized model and tuned lens")
 # Get a dataset to train the tuned lens on. The Pile is a common choice for language modeling tasks.
 import datasets
 datasets.disable_caching()
-ds = datasets.load_dataset("NeelNanda/pile-10k", split="train[:1]")
+ds = datasets.load_dataset("NeelNanda/pile-10k", split="train[:100]")
 print("imported dataset")
 
 from transformers import GPT2Tokenizer
