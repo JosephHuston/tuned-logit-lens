@@ -38,7 +38,7 @@ print("initialized model and tuned lens")
 # Get a dataset to train the tuned lens on. The Pile is a common choice for language modeling tasks.
 import datasets
 datasets.disable_caching()
-ds = datasets.load_dataset("NeelNanda/pile-10k", split="train[:10]")
+ds = datasets.load_dataset("NeelNanda/pile-10k", split="train[:1]")
 print("imported dataset")
 
 from transformers import GPT2Tokenizer
@@ -152,7 +152,6 @@ def plot_tuned_evolution(sample_tokens: str):
     ax.set_ylabel("Layer", fontsize=10)
     ax.set_title("Tuned Lens: Top Predicted Token per Layer", fontsize=12)
 
-    plt.colorbar(ax=ax, label="Probability", shrink=0.8)
     plt.tight_layout()
     plt.savefig("plots/tuned_lens.png", dpi=150, bbox_inches="tight")
     plt.show()
